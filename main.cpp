@@ -41,6 +41,14 @@ int main() {
         tipo det = A.Determinante();
         std::cout << "Determinante de A: " << det << std::endl;
 
+        // Cofactores
+        Matriz cof = A.Cofactores();
+        std::cout << "Matriz de cofactores de A:\n" << cof;
+
+        // Inversa
+        Matriz inv = A.Inversa();
+        std::cout << "Inversa de A:\n" << inv;
+
         // Redimensionar
         std::cout << "\nRedimensionando A a 2x2..." << std::endl;
         A.Redimensionar(2, 2);
