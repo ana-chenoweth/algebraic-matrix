@@ -221,6 +221,34 @@ Matriz Matriz::operator-(const Matriz &v) const
 
     return s;
 }
+//***********************************
+Matriz Matriz::operator*(const Matriz &v) const
+{
+    if (m != v.m || n != v.n)
+        throw "Dimensiones incompatibles para sumar";
+
+    Matriz s(m, n);
+
+    for (unsigned int i = 0; i < m; i++) {
+        for (unsigned int j = 0; j < n; j++) {
+            s.componente[i][j] = componente[i][j] * v.componente[i][j];
+        }
+    }
+
+    return s;
+}
+//***********************************
+Matriz Matriz::operator*(double escalar) const
+{
+    Matriz s(m, n);
+    for (unsigned int i = 0; i < m; i++) {
+        for (unsigned int j = 0; j < n; j++) {
+            s.componente[i][j] = componente[i][j] * escalar;
+        }
+    }
+
+    return s;
+}
 
 /* FUNCIONES EXTERNAS*/
 //*****************************************************************

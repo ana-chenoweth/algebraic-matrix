@@ -21,6 +21,8 @@ public:
     int ObtenerNumCol() const;
     Matriz operator+(const Matriz &v) const;
     Matriz operator-(const Matriz &v) const;
+    Matriz operator*(const Matriz &v) const;
+    Matriz operator*(double escalar) const;
 
 private:
     unsigned int m, n;
