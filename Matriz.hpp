@@ -25,6 +25,7 @@ public:
     Matriz operator*(const Matriz &v) const;
     Matriz operator*(double escalar) const;
     Matriz Transpuesta() const;
+    tipo Determinante() const;
 
 private:
     unsigned int m, n;

@@ -197,6 +197,39 @@ Matriz Matriz::Transpuesta() const
     }
     return s;
 }
+//******************************************************************************
+tipo Matriz::Determinante() const
+{
+    if(n!=m) throw "Dimensiones incorrectas para el determinanate";
+    if (n == 1) {
+        return componente[0][0];
+    } else {
+        tipo det = 0;
+        Matriz submatriz(n - 1, n - 1);
+
+        for (unsigned int i = 0; i < n; ++i) {
+            // Obtiene la submatriz eliminando la primera fila y la columna i
+            int submatriz_fila = 0;
+            for (unsigned int j = 1; j < n; ++j) {
+                int submatriz_columna = 0;
+                for (unsigned int k = 0; k < n; ++k) {
+                    if (k != i) {
+                        submatriz.componente[submatriz_fila][submatriz_columna] = componente[j][k];
+                        ++submatriz_columna;
+                    }
+                }
+                ++submatriz_fila;
+            }
+
+            // Calcula el cofactor como el determinante de la submatriz con signo alternante
+            int signo = (i % 2 == 0) ? 1 : -1;
+            tipo cofactor = submatriz.Determinante();
+            det += signo * componente[0][i] * cofactor;
+        }
+        return det;
+    }
+
+}
 
 /* OPERACIONES CON MATRICES */
 //***********************************
