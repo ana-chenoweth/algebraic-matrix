@@ -144,6 +144,48 @@ int Matriz::ObtenerNumCol() const
 {
     return n;
 }
+//*******************************************************************
+void Matriz::Redimensionar(unsigned int nuevo_m, unsigned int nuevo_n)
+{
+    if (nuevo_m < 1 || nuevo_n < 1) {
+        throw "Valor fuera de rango para las dimensiones de la matriz";
+    }
+    if (nuevo_m == m && nuevo_n == n) {
+        return;
+    }
+    try {
+        tipo** nueva_componente = new tipo*[nuevo_m];
+        nueva_componente[0] = new tipo[nuevo_m * nuevo_n];
+        for (unsigned int i = 1; i < nuevo_m; ++i) {
+            nueva_componente[i] = nueva_componente[0] + i * nuevo_n;
+        }
+
+        for (unsigned int i = 0; i < nuevo_m; ++i) {
+            for (unsigned int j = 0; j < nuevo_n; ++j) {
+                nueva_componente[i][j] = 0;
+            }
+        }
+        // Copiar los valores de la matriz original que siguen siendo v�lidos
+        for (unsigned int i = 0; i < std::min(m, nuevo_m); ++i) {
+            for (unsigned int j = 0; j < std::min(n, nuevo_n); ++j) {
+                nueva_componente[i][j] = componente[i][j];
+            }
+        }
+
+        // Liberar la memoria de la matriz original
+        delete[] componente[0];
+        delete[] componente;
+
+        // Asignar la nueva matriz redimensionada
+        componente = nueva_componente;
+        m = nuevo_m;
+        n = nuevo_n;
+
+    } catch (std::bad_alloc &) {
+        throw "No es posible construir una Matriz";
+    }
+}
+
 
 
 /* FUNCIONES EXTERNAS*/

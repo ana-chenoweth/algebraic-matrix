@@ -15,6 +15,7 @@ public:
     Matriz &operator=(const Matriz &v);
     ~Matriz();
     void Capturar();
+    void Redimensionar(unsigned int nuevo_m, unsigned int nuevo_n);
     void Imprimir() const;
     int ObtenerNumRen() const;
     int ObtenerNumCol() const;
