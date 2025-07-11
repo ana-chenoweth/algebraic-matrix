@@ -12,6 +12,10 @@ public:
     Matriz(const Matriz &v);
     Matriz &operator=(const Matriz &v);
     ~Matriz();
+    void Capturar();
+    void Imprimir() const;
+    int ObtenerNumRen() const;
+    int ObtenerNumCol() const;
 
 private:
     unsigned int m, n;
