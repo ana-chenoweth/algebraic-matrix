@@ -291,3 +291,14 @@ std::istream & operator>>(std::istream &in,Matriz &v)
     return in;
 }
 //*************************************************************
+Matriz operator*(double escalar, const Matriz &v)
+{
+    Matriz s(v.m, v.n);
+    for (unsigned int i = 0; i < v.m; i++) {
+        for (unsigned int j = 0; j < v.n; j++) {
+            s.componente[i][j] = escalar * v.componente[i][j];
+        }
+    }
+
+    return s;
+}
