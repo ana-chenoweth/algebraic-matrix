@@ -6,6 +6,8 @@
 typedef long double tipo;
 
 class Matriz {
+    friend std::ostream &operator<<(std::ostream &out, const Matriz &v);
+    friend std::istream &operator>>(std::istream &in, Matriz &v);
 
 public:
     explicit Matriz(int m = 3, int n = 3);

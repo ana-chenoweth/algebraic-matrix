@@ -144,3 +144,46 @@ int Matriz::ObtenerNumCol() const
 {
     return n;
 }
+
+
+/* FUNCIONES EXTERNAS*/
+//*****************************************************************
+std::ostream & operator<<(std::ostream &out,const Matriz &v)
+{
+    out << left;
+    out << "┌";
+    for(unsigned int j = 0; j < v.n ; ++j) out << "\t";
+    out << "┐" << endl;
+
+    for(unsigned int i = 0 ; i < v.m ; ++i){
+        out << "│";
+        for(unsigned int j = 0; j < v.n ; ++j) {
+            if (v.componente[i][j] - static_cast<int>(v.componente[i][j]) !=0 || v.componente[i][j] - round(v.componente[i][j]) !=0 ) {
+                out << fixed << setprecision(2) << v.componente[i][j] << "\t" ;
+            } else {
+                out << v.componente[i][j] << "\t" ;
+            }
+        }
+        out << "│";
+        out << endl;
+    }
+
+    out  << "└";
+    for(unsigned int j = 0; j < v.n ; ++j) out << "\t";
+    out << "┘";
+
+    out << endl << endl;
+
+    return out;
+}
+//**************************************************************
+std::istream & operator>>(std::istream &in,Matriz &v)
+{
+    for(unsigned int i = 0 ; i < v.m ; ++i){
+        for(unsigned int j = 0; j<v.n; ++j){
+                    in >>v.componente[i][j];
+        }
+    }
+    return in;
+}
+//*************************************************************
