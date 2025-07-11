@@ -19,6 +19,8 @@ public:
     void Imprimir() const;
     int ObtenerNumRen() const;
     int ObtenerNumCol() const;
+    Matriz operator+(const Matriz &v) const;
+    Matriz operator-(const Matriz &v) const;
 
 private:
     unsigned int m, n;
