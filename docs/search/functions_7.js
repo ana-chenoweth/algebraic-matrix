@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7ematriz_0',['~Matriz',['../class_matriz.html#a2092b7a289ecec369e1da407d5839f5a',1,'Matriz']]]
+  ['transpuesta_0',['Transpuesta',['../class_matriz.html#a3956fbbc4473b16fdc61c52f83a7d297',1,'Matriz']]]
 ];

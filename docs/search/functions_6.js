@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transpuesta_0',['Transpuesta',['../class_matriz.html#a3956fbbc4473b16fdc61c52f83a7d297',1,'Matriz']]]
+  ['redimensionar_0',['Redimensionar',['../class_matriz.html#ad8a45394f54a5d8aada73c53e86260ad',1,'Matriz']]]
 ];
