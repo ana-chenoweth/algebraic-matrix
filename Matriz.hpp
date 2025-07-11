@@ -26,6 +26,8 @@ public:
     Matriz operator*(double escalar) const;
     Matriz Transpuesta() const;
     tipo Determinante() const;
+    Matriz Cofactores() const;
+    Matriz Inversa() const;
 
 private:
     unsigned int m, n;

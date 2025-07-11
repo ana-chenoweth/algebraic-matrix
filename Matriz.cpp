@@ -231,6 +231,59 @@ tipo Matriz::Determinante() const
 
 }
 
+//******************************************************************************
+Matriz Matriz::Cofactores() const
+{
+    if(n!=m) throw "Dimensiones incorrectas para el la matriz de cofactores";
+    Matriz cofactores(n, n);
+    Matriz submatriz(n-1, n-1);
+        for (unsigned int i = 0; i < n; ++i) {
+        for (unsigned int j = 0; j < n; ++j) {
+            int submatriz_fila = 0;
+            for (unsigned int k = 0; k < n; ++k) {
+                if (k != i) {
+                    int submatriz_columna = 0;
+                    for (unsigned int l = 0; l < n; ++l) {
+                        if (l != j) {
+                            submatriz.componente[submatriz_fila][submatriz_columna] = componente[k][l];
+                            ++submatriz_columna;
+                        }
+                    }
+                    ++submatriz_fila;
+                }
+            }
+
+            // Calcula el cofactor como el determinante de la submatriz con signo alternante
+            int signo = (i + j) % 2 == 0 ? 1 : -1;
+            cofactores.componente[i][j] = signo * submatriz.Determinante();
+        }
+    }
+    return cofactores;
+}
+//******************************************************************************
+Matriz Matriz::Inversa() const
+{
+    if(n!=m) throw "Dimensiones incorrectas para el la matriz inversa";
+    Matriz inversa(n, n);
+    tipo determinante = this->Determinante();
+
+    if (abs(determinante) < 1e-10) {
+        throw "No existe la inversa de esta matriz";
+    }
+
+    Matriz cofactores(n, n);
+    cofactores = this->Cofactores();
+
+    for (unsigned int i = 0; i < n; ++i) {
+        for (unsigned int j = 0; j < n; ++j) {
+            inversa.componente[i][j] = cofactores.componente[j][i] / determinante;
+        }
+    }
+
+    return inversa;
+
+}
+
 /* OPERACIONES CON MATRICES */
 //***********************************
 Matriz Matriz::operator+(const Matriz &v) const
