@@ -186,7 +186,17 @@ void Matriz::Redimensionar(unsigned int nuevo_m, unsigned int nuevo_n)
     }
 }
 
-/***************************************************************************
+//******************************************************************************
+Matriz Matriz::Transpuesta() const
+{
+    Matriz s(n, m); // Crear una matriz con dimensiones transpuestas (n, m)
+    for (unsigned int i = 0; i < m; i++) {
+        for (unsigned int j = 0; j < n; j++) {
+            s.componente[j][i] = componente[i][j]; // Asignar elementos transpuestos
+        }
+    }
+    return s;
+}
 
 /* OPERACIONES CON MATRICES */
 //***********************************

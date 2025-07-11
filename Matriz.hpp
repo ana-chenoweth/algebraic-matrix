@@ -24,6 +24,7 @@ public:
     Matriz operator-(const Matriz &v) const;
     Matriz operator*(const Matriz &v) const;
     Matriz operator*(double escalar) const;
+    Matriz Transpuesta() const;
 
 private:
     unsigned int m, n;
