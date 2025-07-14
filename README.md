@@ -5,20 +5,6 @@
 Este proyecto fue desarrollado como parte de mis estudios en estructuras algebraicas y está documentado completamente con Doxygen.
 
 ---
-
-## Funcionalidades principales
-
-- Creación y captura de matrices dinámicas
-- Suma, resta y multiplicación (elemento a elemento)
-- Transposición
-- Determinante
-- Matriz de cofactores
-- Inversa (cuando existe)
-- Redimensionamiento de matrices
-- Sobrecarga de operadores `+`, `-`, `*`, `<<`, `>>`
-
----
-
 ## Ejemplo de uso
 
 <table>
@@ -34,6 +20,18 @@ Este proyecto fue desarrollado como parte de mis estudios en estructuras algebra
   
 </table>
 
+## Funcionalidades principales
+
+- Creación y captura de matrices dinámicas
+- Suma, resta y multiplicación (elemento a elemento)
+- Transposición
+- Determinante
+- Matriz de cofactores
+- Inversa (cuando existe)
+- Redimensionamiento de matrices
+- Sobrecarga de operadores `+`, `-`, `*`, `<<`, `>>`
+
+---
 ## Documentación
 La documentación completa generada con Doxygen está disponible en GitHub Pages:
 
