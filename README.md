@@ -5,8 +5,6 @@
 Este proyecto fue desarrollado como parte de mis estudios en estructuras algebraicas y está documentado completamente con Doxygen.
 
 ---
-## Ejemplo de uso
-
 <table>
     <tr>
         <th><img src="img/capturar.png" alt="Capturando matrices" width="300"></th>
